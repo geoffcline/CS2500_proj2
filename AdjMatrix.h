@@ -2,6 +2,8 @@
 #define ADJMATRIX_H
 
 #include <random>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
