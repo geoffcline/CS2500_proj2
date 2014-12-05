@@ -42,3 +42,23 @@ int MostOccur(const int* A, const int sz)
 
   return maxi(freq, range) + min;
 }
+
+int Maxi(const int* A, const int sz)
+{
+  int r = 0;
+  for (int i = 1; i < sz; ++i)
+    if (A[i] > A[r])
+      r = i;
+
+  return r;
+}
+
+int Mini(const int* A, const int sz)
+{
+  int r = 0;
+  for (int i = 1; i < sz; ++i)
+    if (A[i] < A[r])
+      r = i;
+
+  return r;
+}
