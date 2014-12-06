@@ -68,7 +68,8 @@ const float avgDistance(int** p, AdjMatrix& A)
 	{
 		for (int j = 0; j < SIZE; i++)
 		{
-			sum = sum + p[i][j];
+			if (p[i][j] > 0)
+				sum = sum + p[i][j];
 		}
 	}
 	avg = sum / (SIZE * SIZE);
