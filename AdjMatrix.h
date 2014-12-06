@@ -7,9 +7,6 @@
 
 using namespace std;
 
-const int X_MAX = 500;
-const int Y_MAX = 500; 
-
 struct GeoNode
 {
 private:
