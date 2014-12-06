@@ -40,7 +40,7 @@ int* Dijkstra(const AdjMatrix& A, const int u)
 		for (int i = 0; i < SIZE; i++)
 			if (A(u,i))
 			{
-				if (!visited[i] && distance[i] > distance[minV] +1)
+				if (!visited[i] && distance[i] > distance[minV] + 1)
 				{
 					distance[i] = distance[minV] + 1;
 				}
@@ -91,7 +91,7 @@ const float longDistance(const int** p, AdjMatrix& A)
 	return max;
 }
 
-void deletePaths(int** p, AdjMatrix& A)
+void deleteDij(int** p, AdjMatrix& A)
 {
 	const int SIZE = A.getdensity();
 	
