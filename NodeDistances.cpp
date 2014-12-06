@@ -58,7 +58,7 @@ int** shortestPaths(const AdjMatrix& A)
 	return paths;
 }
 
-const float avgDistance(const int** p, AdjMatrix& A)
+const float avgDistance(int** p, AdjMatrix& A)
 {
 	const int SIZE = A.getdensity();
 	float sum      = 0;
@@ -75,7 +75,7 @@ const float avgDistance(const int** p, AdjMatrix& A)
 	return avg;
 }
 
-const float longDistance(const int** p, AdjMatrix& A)
+const float longDistance(int** p, AdjMatrix& A)
 {
 	const int SIZE = A.getdensity();
 	float max      = 0;
