@@ -1,5 +1,4 @@
 
-#include "AdjMatrix.h"
 #include "Components.h"
 #include "NodeDistances.h"
 #include <fstream>
@@ -86,10 +85,11 @@ int main ()
       totalresultAvgDist = totalresultAvgDist/NUMPERPOINT;
       totalresultDiameter= totalresultDiameter/NUMPERPOINT;
 
-      fout << "\"NUM CC DATA POINT 3\",\"" << i << "\",\"" << totalresultNumCC << "\"" << endl;
-      fout << "\"MAX CC DATA POINT 3\",\"" << i << "\",\"" << totalresultMaxCC << "\"" << endl;
-      fout << "\"AVG DIST DATA POINT 3\",\"" << i << "\",\"" << totalresultAvgDist << "\"" << endl;
-      fout << "\"DIAMETER DATA POINT 3\",\"" << i  << "\",\"" << totalresultDiameter << "\"" << endl;
+      fout << "\"Number Of Nodes\",\"" << M_working.getdensity() << "\"" << endl; 
+      fout << "\"NUM CC DATA POINT\",\"" << i << "\",\"" << totalresultNumCC << "\"" << endl;
+      fout << "\"MAX CC DATA POINT\",\"" << i << "\",\"" << totalresultMaxCC << "\"" << endl;
+      fout << "\"AVG DIST DATA POINT\",\"" << i << "\",\"" << totalresultAvgDist << "\"" << endl;
+      fout << "\"DIAMETER DATA POINT\",\"" << i  << "\",\"" << totalresultDiameter << "\"" << endl;
       
 
       totalresultNumCC = 0;
@@ -155,10 +155,12 @@ int main ()
       totalresultAvgDist = totalresultAvgDist/NUMPERPOINT;
       totalresultDiameter= totalresultDiameter/NUMPERPOINT;
 
-      fout << "\"NUM CC DATA POINT 3\",\"" << i << "\",\"" << totalresultNumCC << "\"" << endl;
-      fout << "\"MAX CC DATA POINT 3\",\"" << i << "\",\"" << totalresultMaxCC << "\"" << endl;
-      fout << "\"AVG DIST DATA POINT 3\",\"" << i << "\",\"" << totalresultAvgDist << "\"" << endl;
-      fout << "\"DIAMETER DATA POINT 3\",\"" << i  << "\",\"" << totalresultDiameter << "\"" << endl;
+
+      fout << "\"Size Of Radius\",\"" << M_working.getradius() << "\"" << endl; 
+      fout << "\"NUM CC DATA POINT\",\"" << i << "\",\"" << totalresultNumCC << "\"" << endl;
+      fout << "\"MAX CC DATA POINT\",\"" << i << "\",\"" << totalresultMaxCC << "\"" << endl;
+      fout << "\"AVG DIST DATA POINT\",\"" << i << "\",\"" << totalresultAvgDist << "\"" << endl;
+      fout << "\"DIAMETER DATA POINT\",\"" << i  << "\",\"" << totalresultDiameter << "\"" << endl;
       
 
       totalresultNumCC = 0;
