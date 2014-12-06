@@ -4,7 +4,7 @@
 
 #include "NodeDistances.h"
 
-int* Dijkstra(const AdjMatrix& A, const GeoNode u)
+int* Dijkstra(const AdjMatrix& A, const int u)
 {
 	int visited[SIZE];
 	int minD;
@@ -49,12 +49,12 @@ int* Dijkstra(const AdjMatrix& A, const GeoNode u)
 	return distance;
 }
 
-int** shortestPaths(const int* p, const AdjMatrix& A, const geoNode u)
+int** shortestPaths(const AdjMatrix& A)
 {
 	const int SIZE = A.getDensity();
-	int paths      = new int** [SIZE];
+	int paths**    = new int* [SIZE];
 	for (int i = 0; i < SIZE; i++)
-		paths[i] = dijkstra (A, u);
+		paths[i] = dijkstra (A, i);
 	return paths;
 }
 

@@ -11,14 +11,14 @@ using namespace std;
 
 
 
-int* Dijkstra(const AdjMatrix& A, const GeoNode u);  
+int* Dijkstra(const AdjMatrix& A, const int u);  
 
-int** shortestPaths(const int* p);
+int** shortestPaths(const AdjMatrix& A);
 
-const float avgDistance(const int* p);
+const float avgDistance(const int** p, AdjMatrix& A);
 
-const float longDistance(const int* p);
+const float longDistance(const int** p, AdjMatrix& A);
 
-void deleteDij(int* p);
+void deleteDij(int** p);
 
 #endif

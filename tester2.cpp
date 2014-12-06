@@ -1,6 +1,7 @@
 
 #include "AdjMatrix.h"
 #include "Components.h"
+#include "NodeDistances.h"
 #include <fstream>
 #include <iostream>
 
@@ -43,7 +44,7 @@ int main ()
     M_working.generate(INITIALNUMOFSENSORS + NUMOFSENSORSINCREMENT * (i / NUMPERPOINT), RADIUS);
     
     cc_result = ConnectedComponents(const AdjMatrix& M_working)
-    
+    int** dist;
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
     currentresult = Max(const int* cc_result, const int A.getdensity());
@@ -62,19 +63,22 @@ int main ()
     delete [] cc_result;
     cc_result = NULL;
 
+    dist = shortestPaths(M_working);
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(M_working, MAXW);
+    currentresult = avgDistance(dist, M_working);
     fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(M_working, MAXW);
+    currentresult = longDistance(dist, M_working);
     fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
-    
+
     totalresultDiameter+=currentresult;
+
+    deletePaths(dist);
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
@@ -127,19 +131,23 @@ int main ()
     delete [] cc_result;
     cc_result = NULL;
 
+    dist = shortestPaths(M_working);
+
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(M_working, MAXW);
+    currentresult = avgDistance(dist, M_working);
     fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(M_working, MAXW);
+    currentresult = longDistance(dist, M_working);
     fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultDiameter+=currentresult;
+
+    deletePaths(dist);
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
