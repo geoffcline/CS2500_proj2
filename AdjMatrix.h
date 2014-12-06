@@ -7,6 +7,9 @@
 
 using namespace std;
 
+const int X_MAX = 500;
+const int Y_MAX = 500; //decide where we want these variables
+
 struct GeoNode
 {
 private:
@@ -27,7 +30,7 @@ private:
                        //changing the desnsity requires a whole new graph
   void  calculate();   //uses the radius to determine if the nodes are connected
 public:
-  int   getdensity () const {return size;}
+  int   getdensity () const {return density;}
   void  setradius  (const float newr) {radius = newr; calculate();} //radius can be updated, applied to same graph
   int   getradius   () const {return radius;}
   void  generate(const int newd, const int newr);
@@ -39,7 +42,7 @@ public:
   GeoNode operator [] (const int i) const {return data[i];}
 
   AdjMatrix(const AdjMatrix &rhs) {*this = rhs;};
-  AdjMatrix(const int newd = 0, const int newr = 0): radius(newr) density(0) {generate(newd);}
+  AdjMatrix(const int newd = 0, const int newr = 0): radius(newr), density(0) {generate(newd);}
   ~AdjMatrix() {clear();}
 
 };

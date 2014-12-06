@@ -7,9 +7,6 @@
 
 using namespace std;
 
-const int X_SIZE = 500;
-const int Y_SIZE = 500; //decide where we want these variables
-
 int main ()
 {
 
@@ -26,7 +23,8 @@ int main ()
 
   AdjMatrix M_working;
 
-  int* cc_result = null;
+  int* cc_result = NULL;
+  int** dist;
 
   float currentresult=0;
   float totalresultNumCC=0;
@@ -43,11 +41,10 @@ int main ()
   {
     M_working.generate(INITIALNUMOFSENSORS + NUMOFSENSORSINCREMENT * (i / NUMPERPOINT), RADIUS);
     
-    cc_result = ConnectedComponents(const AdjMatrix& M_working)
-    int** dist;
+    cc_result = ConnectedComponents(M_working);
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = Max(const int* cc_result, const int A.getdensity());
+    currentresult = Max(cc_result, M_working.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -55,7 +52,7 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-    currentresult = MostOccur(const int* cc_result, const int A.getdensity());
+    currentresult = MostOccur(cc_result, M_working.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
@@ -64,6 +61,7 @@ int main ()
     cc_result = NULL;
 
     dist = shortestPaths(M_working);
+      
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
     currentresult = avgDistance(dist, M_working);
@@ -78,7 +76,7 @@ int main ()
 
     totalresultDiameter+=currentresult;
 
-    deletePaths(dist);
+    deleteDij(dist, M_working);
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
@@ -111,11 +109,11 @@ int main ()
 
     M_working.generate(NUMOFSENSORS, INITIALRADIUS + RADIUSINCREMENT * (i / NUMPERPOINT)); //generate graph
 
-    cc_result = ConnectedComponents(const AdjMatrix& A)
+    cc_result = ConnectedComponents(M_working);
     
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = Max(const int* cc_result, const int A.getdensity());
+    currentresult = Max(cc_result, M_working.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -123,7 +121,7 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-   currentresult = MostOccur(const int* cc_result, const int A.getdensity());
+   currentresult = MostOccur(cc_result, M_working.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
@@ -147,7 +145,7 @@ int main ()
     
     totalresultDiameter+=currentresult;
 
-    deletePaths(dist);
+    deleteDij(dist, M_working);
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
@@ -169,8 +167,11 @@ int main ()
       totalresultDiameter= 0;
     }
   
-    fout.close();
-
-    return 0;
+    
   
   }
+    
+    fout.close();
+    
+    return 0;
+}

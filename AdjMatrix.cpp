@@ -17,7 +17,7 @@ void AdjMatrix::generate(const int newsz, const int newr)
   return;
 }
 
-void GeoNode::GeoNode()
+GeoNode::GeoNode()
 {
   x = rand() % (X_MAX + 1);
   y = rand() % (Y_MAX + 1);
@@ -25,10 +25,10 @@ void GeoNode::GeoNode()
 
 float NodeDistance(const GeoNode& l, const GeoNode& r)
 {
-  int sx = (l.x - r.x)
-  sx *= sx
-  int sy = (l.y - r.y)
-  sy *= sy;
+  int sx = (l.x - r.x);
+    sx *= sx;
+  int sy = (l.y - r.y);
+    sy *= sy;
 
   return sqrt(sx + sy);
 }
@@ -50,13 +50,13 @@ void  AdjMatrix::clear()
   
   data = NULL;
   connect = NULL;
-  size = 0;
   density = 0;
+    radius=0;
 
   return;
 }
 
-void AdjMatrix::generate()
+void AdjMatrix::calculate()
 {
   for (int i = 0; i < getdensity(); ++i)
   {

@@ -6,7 +6,7 @@ int* ConnectedComponents(const AdjMatrix& A)
   const int SIZE = A.getdensity();
   int curr_id = 0;
 
-  new int* id_arr = new int [SIZE];
+  int* id_arr = new int [SIZE];
   for (int i = 0; i < SIZE; ++i)
     id_arr[i] = 0;
   
@@ -15,12 +15,13 @@ int* ConnectedComponents(const AdjMatrix& A)
     {
       DFSAssign(A, id_arr, i,++curr_id);
     }
-
+    
+    return id_arr;
 }
 
-void DFSAssign(const AdjMatrix& A, const int* id_arr, const int parent, const int newid)
+void DFSAssign(const AdjMatrix& A, int* id_arr, const int parent, const int newid)
 {
-  id_arr[n] = newid;
+  id_arr[parent] = newid;
   for (int i = 0; i < A.getdensity(); ++i)
     if(id_arr[i] == 0 && A(i,parent))
     {
@@ -30,17 +31,16 @@ void DFSAssign(const AdjMatrix& A, const int* id_arr, const int parent, const in
 
 int MostOccur(const int* A, const int sz)
 {
-  int min   = min(A);
-  int range = max(A) - min;
-  int result;
-  new int* freq = new int[range];
+  int min   = Min(A, sz);
+  int range = Max(A, sz) - min;
+  int* freq = new int[range];
   for (int i = 0; i < range; ++i)
     freq[i] = 0;
 
   for (int i = 0; i < sz; ++i)
     freq[A[i] - min]++;
 
-  return maxi(freq, range) + min;
+  return Maxi(freq, range) + min;
 }
 
 int Maxi(const int* A, const int sz)

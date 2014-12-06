@@ -15,10 +15,10 @@ int* Dijkstra(const AdjMatrix& A, const int u);
 
 int** shortestPaths(const AdjMatrix& A);
 
-const float avgDistance(const int** p, AdjMatrix& A);
+const float avgDistance(int** p, AdjMatrix& A);
 
-const float longDistance(const int** p, AdjMatrix& A);
+const float longDistance(int** p, AdjMatrix& A);
 
-void deleteDij(int** p);
+void deleteDij(int** p, AdjMatrix& A);
 
 #endif

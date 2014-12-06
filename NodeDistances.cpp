@@ -6,14 +6,14 @@
 
 int* Dijkstra(const AdjMatrix& A, const int u)
 {
-	int visited[SIZE];
+	const int SIZE = A.getdensity();
+    bool visited[SIZE];
 	int minD;
 	int minV;
 	int k          = 0;
-	const int SIZE = A.getDensity();
 	int *distance  = new int[SIZE];
 	distance[u]    = 0;
-	visited[u]     = TRUE;
+	visited[u]     = 1;
 	
 	for (int i = 0; i < SIZE; i++)
 		if (i != u)
@@ -30,17 +30,17 @@ int* Dijkstra(const AdjMatrix& A, const int u)
 		minD = -1;
 		minV = NULL;
 		for (int i = 0; i < SIZE; i++)
-			if (distance[i] < minD && visited[i] == FALSE)
+			if (distance[i] < minD && !visited[i])
 			{
 				minD = distance[i];
 				minV = i;
 			}
-		visited[minV] = TRUE;
+		visited[minV] = 1;
 		k++;
 		for (int i = 0; i < SIZE; i++)
 			if (A(u,i))
 			{
-				if (visited[i] == FALSE && distance[i] > distance[minV] +1)
+				if (!visited[i] && distance[i] > distance[minV] +1)
 				{
 					distance[i] = distance[minV] + 1;
 				}
@@ -51,16 +51,16 @@ int* Dijkstra(const AdjMatrix& A, const int u)
 
 int** shortestPaths(const AdjMatrix& A)
 {
-	const int SIZE = A.getDensity();
-	int paths**    = new int* [SIZE];
+	const int SIZE = A.getdensity();
+	int** paths = new int* [SIZE];
 	for (int i = 0; i < SIZE; i++)
-		paths[i] = dijkstra (A, i);
+		paths[i] = Dijkstra (A, i);
 	return paths;
 }
 
 const float avgDistance(const int** p, AdjMatrix& A)
 {
-	const int SIZE = A.getDensity();
+	const int SIZE = A.getdensity();
 	float sum      = 0;
 	float avg      = 0;
 
@@ -77,7 +77,7 @@ const float avgDistance(const int** p, AdjMatrix& A)
 
 const float longDistance(const int** p, AdjMatrix& A)
 {
-	const int SIZE = A.getDensity();
+	const int SIZE = A.getdensity();
 	float max      = 0;
 
 	for (int i = 0; i < SIZE; i++)
@@ -91,9 +91,9 @@ const float longDistance(const int** p, AdjMatrix& A)
 	return max;
 }
 
-void deletePaths(int** p)
+void deletePaths(int** p, AdjMatrix& A)
 {
-	const int SIZE = A.getDensity();
+	const int SIZE = A.getdensity();
 	
 	for (int i = 0; i < SIZE; i++ )
 	{
