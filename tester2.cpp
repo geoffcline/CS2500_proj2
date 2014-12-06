@@ -6,14 +6,14 @@
 
 using namespace std;
 
+const int X_SIZE = 500;
+const int Y_SIZE = 500; //decide where we want these variables
+
 int main ()
 {
 
   const int DATAPOINTS = 10;
-  const int NUMPERPOINT = 5;
-
-  //const int XSIZE = 500;
-  //const int YSIZE = 500; decide where we want these variables
+  const int NUMPERPOINT = 5;  
   const int RADIUS = 20;
   const int NUMOFSENSORS = 200;
   const int INITIALRADIUS = 5;
@@ -22,6 +22,8 @@ int main ()
   const int NUMOFSENSORSINCREMENT = 50;
 
   ofstream fout;
+
+  AdjMatrix M_working;
 
   int* cc_result = null;
 
@@ -38,10 +40,9 @@ int main ()
   //set radius to RADIUS
   for(int i=0; i < DATAPOINTS*NUMPERPOINT;i++) 
   {
-
-    //L_working.generate(); //generate graph
-
-    cc_result = ConnectedComponents(const AdjMatrix& A)
+    M_working.generate(INITIALNUMOFSENSORS + NUMOFSENSORSINCREMENT * (i / NUMPERPOINT), RADIUS);
+    
+    cc_result = ConnectedComponents(const AdjMatrix& M_working)
     
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
@@ -63,21 +64,20 @@ int main ()
 
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(L_working, MAXW);
+    currentresult = GreedyKS(M_working, MAXW);
     fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(L_working, MAXW);
+    currentresult = GreedyKS(M_working, MAXW);
     fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultDiameter+=currentresult;
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
-      //L_working.generate(L_working.getsize() + INPUTINCREMENT); //increment num of sensors 
       
       totalresultNumCC = totalresultNumCC/NUMPERPOINT;
       totalresultMaxCC= totalresultMaxCC/NUMPERPOINT;
@@ -105,7 +105,7 @@ int main ()
   for(int i=0; i < DATAPOINTS*NUMPERPOINT;i++) 
   {
 
-    //L_working.generate(); //generate graph
+    M_working.generate(NUMOFSENSORS, INITIALRADIUS + RADIUSINCREMENT * (i / NUMPERPOINT)); //generate graph
 
     cc_result = ConnectedComponents(const AdjMatrix& A)
     
@@ -129,21 +129,20 @@ int main ()
 
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(L_working, MAXW);
+    currentresult = GreedyKS(M_working, MAXW);
     fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing sensors): \t" << i << endl;
-    currentresult = GreedyKS(L_working, MAXW);
+    currentresult = GreedyKS(M_working, MAXW);
     fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultDiameter+=currentresult;
 
     if(i%NUMPERPOINT==0 && i!=0)
     {
-      //L_working.generate(L_working.getsize() + INPUTINCREMENT); //increment range
       
       totalresultNumCC = totalresultNumCC/NUMPERPOINT;
       totalresultMaxCC= totalresultMaxCC/NUMPERPOINT;
