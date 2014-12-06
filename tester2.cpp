@@ -23,6 +23,8 @@ int main ()
 
   ofstream fout;
 
+  int* cc_result = null;
+
   float currentresult=0;
   float totalresultNumCC=0;
   float totalresultMaxCC=0;
@@ -38,10 +40,12 @@ int main ()
   {
 
     //L_working.generate(); //generate graph
+
+    cc_result = ConnectedComponents(const AdjMatrix& A)
     
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = DP_KNAPSACK(L_working,MAXW);
+    currentresult = Max(const int* cc_result, const int A.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -49,10 +53,13 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-    currentresult = DP_KNAPSACK(L_working, MAXW);
+    currentresult = MostOccur(const int* cc_result, const int A.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
+
+    delete [] cc_result;
+    cc_result = NULL;
 
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
@@ -99,10 +106,12 @@ int main ()
   {
 
     //L_working.generate(); //generate graph
+
+    cc_result = ConnectedComponents(const AdjMatrix& A)
     
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = DP_KNAPSACK(L_working,MAXW);
+    currentresult = Max(const int* cc_result, const int A.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -110,10 +119,13 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-    currentresult = DP_KNAPSACK(L_working, MAXW);
+   currentresult = MostOccur(const int* cc_result, const int A.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
+
+    delete [] cc_result;
+    cc_result = NULL;
 
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
