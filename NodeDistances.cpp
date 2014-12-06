@@ -9,14 +9,44 @@ int* Dijkstra(const AdjMatrix& A, const GeoNode u)
 	int visited[SIZE];
 	int minD;
 	int minV;
-	int k          = 1;
+	int k          = 0;
 	const int SIZE = A.getDensity();
 	int *distance  = new int[SIZE];
 	distance[u]    = 0;
 	visited[u]     = TRUE;
 	
-
-
+	for (int i = 0; i < SIZE; i++)
+		if (i != u)
+		{
+			distance[i] = -1;
+		}
+	for (int i = 0; i < SIZE; i++)
+		if (A(u,i))
+		{
+			distance[i] = 1;
+		}
+	while (k < SIZE)
+	{
+		minD = -1;
+		minV = NULL;
+		for (int i = 0; i < SIZE; i++)
+			if (distance[i] < minD && visited[i] == FALSE)
+			{
+				minD = distance[i];
+				minV = i;
+			}
+		visited[minV] = TRUE;
+		k++;
+		for (int i = 0; i < SIZE; i++)
+			if (A(u,i))
+			{
+				if (visited[i] == FALSE && distance[i] > distance[minV] +1)
+				{
+					distance[i] = distance[minV] + 1;
+				}
+			}
+	}
+	return distance;
 }
 
 int** shortestPaths(const int* p, const AdjMatrix& A, const geoNode u)
