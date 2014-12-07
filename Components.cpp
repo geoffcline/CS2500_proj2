@@ -1,5 +1,4 @@
 #include "Components.h"
-#include "AdjMatrix.h"
 
 int* ConnectedComponents(const AdjMatrix& A)
 {
@@ -31,8 +30,8 @@ void DFSAssign(const AdjMatrix& A, int* id_arr, const int parent, const int newi
 
 int MostOccur(const int* A, const int sz)
 {
-  int min   = Min(A, sz);
-  int range = Max(A, sz) - min;
+  int min   = Min(A,sz);
+  int range = Max(A, (*A)+sz) - min;
   int* freq = new int[range];
   for (int i = 0; i < range; ++i)
     freq[i] = 0;
@@ -41,24 +40,4 @@ int MostOccur(const int* A, const int sz)
     freq[A[i] - min]++;
 
   return Maxi(freq, range) + min;
-}
-
-int Maxi(const int* A, const int sz)
-{
-  int r = 0;
-  for (int i = 1; i < sz; ++i)
-    if (A[i] > A[r])
-      r = i;
-
-  return r;
-}
-
-int Mini(const int* A, const int sz)
-{
-  int r = 0;
-  for (int i = 1; i < sz; ++i)
-    if (A[i] < A[r])
-      r = i;
-
-  return r;
 }

@@ -5,7 +5,6 @@
 #ifndef NODEDISTANCES_H
 #define NODEDISTANCES_H
 
-#include <iostream>
 #include "AdjMatrix.h"
 using namespace std;
 
