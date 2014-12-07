@@ -1,3 +1,7 @@
+// Alex Marey, Tyler Percy, Geoffrey Cline
+// Project 2
+// Components.h
+
 #ifndef COMPONENTS_H
 #define COMPONENTS_H
 

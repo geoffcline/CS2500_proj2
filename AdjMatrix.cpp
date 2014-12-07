@@ -1,3 +1,7 @@
+// Alex Marey, Tyler Percy, Geoffrey Cline
+// Project 2
+// AdjMatrix.cpp
+
 #include "AdjMatrix.h"
 
 void AdjMatrix::generate(const int newsz, const int newr)

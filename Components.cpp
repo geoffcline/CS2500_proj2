@@ -1,3 +1,6 @@
+// Alex Marey, Tyler Percy, Geoffrey Cline
+// Project 2
+// Components.cpp
 #include "Components.h"
 
 int* ConnectedComponents(const AdjMatrix& A)

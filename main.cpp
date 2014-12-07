@@ -1,4 +1,6 @@
-
+// Alex Marey, Tyler Percy, Geoffrey Cline
+// Project 2
+// main.cpp
 #include "NodeDistances.h"
 #include "Components.h"
 #include <fstream>
@@ -45,7 +47,7 @@ int main ()
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
     currentresult = Max(cc_result, M_working.getdensity());
-    fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
+    //fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
  
@@ -53,7 +55,7 @@ int main ()
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
     currentresult = MostOccur(cc_result, M_working.getdensity());
-    fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
 
@@ -65,14 +67,14 @@ int main ()
     //Avg Node Distance
     cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
     currentresult = avgDistance(dist, M_working);
-    fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing sensors): \t" << i << endl;
     currentresult = longDistance(dist, M_working);
-    fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
 
     totalresultDiameter+=currentresult;
 
@@ -115,7 +117,7 @@ int main ()
     //Num of CC
     cout << "Num of CCs (increasing radius): \t" << i << endl;
     currentresult = Max(cc_result, M_working.getdensity());
-    fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
+    //fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
  
@@ -123,7 +125,7 @@ int main ()
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing radius): \t" << i << endl;
     currentresult = MostOccur(cc_result, M_working.getdensity());
-    fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
 
@@ -135,14 +137,14 @@ int main ()
     //Avg Node Distance
     cout << "Avg Node Dist (increasing radius): \t" << i << endl;
     currentresult = avgDistance(dist, M_working);
-    fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
     cout << "Diameter (increasing radius): \t" << i << endl;
     currentresult = longDistance(dist, M_working);
-    fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
+    //fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultDiameter+=currentresult;
 

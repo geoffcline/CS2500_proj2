@@ -1,3 +1,6 @@
+// Alex Marey, Tyler Percy, Geoffrey Cline
+// Project 2
+// AdjMatrix.h
 #ifndef ADJMATRIX_H
 #define ADJMATRIX_H
 
