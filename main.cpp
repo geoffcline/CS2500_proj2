@@ -113,7 +113,7 @@ int main ()
     cc_result = ConnectedComponents(M_working);
     
     //Num of CC
-    cout << "Num of CCs (increasing sensors): \t" << i << endl;
+    cout << "Num of CCs (increasing radius): \t" << i << endl;
     currentresult = Max(cc_result, M_working.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
@@ -121,7 +121,7 @@ int main ()
  
     
     //Size of Largest CC
-    cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
+    cout << "Size Of Largest CC (increasing radius): \t" << i << endl;
     currentresult = MostOccur(cc_result, M_working.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
@@ -133,14 +133,14 @@ int main ()
     dist = shortestPaths(M_working);
 
     //Avg Node Distance
-    cout << "Avg Node Dist (increasing sensors): \t" << i << endl;
+    cout << "Avg Node Dist (increasing radius): \t" << i << endl;
     currentresult = avgDistance(dist, M_working);
     fout << "\"Avg Node Dist\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultAvgDist+=currentresult;
 
     //Diameter of network
-    cout << "Diameter (increasing sensors): \t" << i << endl;
+    cout << "Diameter (increasing radius): \t" << i << endl;
     currentresult = longDistance(dist, M_working);
     fout << "\"Diameter\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
