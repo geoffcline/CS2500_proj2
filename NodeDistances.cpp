@@ -19,8 +19,8 @@ int minDistance(int* distance, bool sptSet[], const int V)
 
 int* Dijkstra(const AdjMatrix& A, const int src)
 {
-	int SIZE = A.getdensity();
-    int* distance = new int[SIZE];     //distance[i] will hold the shortest distance from src to i
+	int V = A.getdensity();
+    int* distance = new int[V];     //distance[i] will hold the shortest distance from src to i
     bool sptSet[V];                    // Will be true if the vertex is visited
     for (int i = 0; i < V; i++)        // Initialize all distances as INFINITE and stpSet[] as false
     	distance[i] = INT_MAX, sptSet[i] = false;
@@ -43,7 +43,6 @@ int* Dijkstra(const AdjMatrix& A, const int src)
         if (!sptSet[v] && A(u,v) && distance[u] != INT_MAX && distance[u]+A(u,v) < distance[v])
               distance[v] = distance[u] + A(u,v);
         }
-	}
     return distance;
 }
 
