@@ -18,7 +18,7 @@ int* Dijkstra(const AdjMatrix& A, const int u)
 	for (int i = 0; i < SIZE; i++)
 		if (i != u)
 		{
-			distance[i] = -1;
+			distance[i] = 100000000;
 		}
 	for (int i = 0; i < SIZE; i++)
 		if (A(u,i))
@@ -27,7 +27,7 @@ int* Dijkstra(const AdjMatrix& A, const int u)
 		}
 	while (k < SIZE)
 	{
-		minD = -1;
+		minD = 100000000;
 		minV = NULL;
 		for (int i = 0; i < SIZE; i++)
 			if (distance[i] < minD && !visited[i])
@@ -68,7 +68,6 @@ const float avgDistance(int** p, AdjMatrix& A)
 	{
 		for (int j = 0; j < SIZE; j++)
 		{
-			if (p[i][j] > 0)
 				sum = sum + p[i][j];
 		}
 	}
