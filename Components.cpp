@@ -30,14 +30,17 @@ void DFSAssign(const AdjMatrix& A, int* id_arr, const int parent, const int newi
 
 int MostOccur(const int* A, const int sz)
 {
-  int min   = Min(A,sz);
-  int range = Max(A, (*A)+sz) - min;
-  int* freq = new int[range];
-  for (int i = 0; i < range; ++i)
+  int max = Max(A,sz);
+  int* const freq = new int[max+1];
+  for (int i = 0; i < max; ++i)
     freq[i] = 0;
 
   for (int i = 0; i < sz; ++i)
-    freq[A[i] - min]++;
+    freq[A[i]]++;
+    
+  int result = Maxi(freq, max);
+    
+  delete [] freq;
 
-  return Maxi(freq, range) + min;
+  return result;
 }
