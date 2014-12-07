@@ -66,7 +66,7 @@ const float avgDistance(int** p, AdjMatrix& A)
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < SIZE; i++)
+		for (int j = 0; j < SIZE; j++)
 		{
 			if (p[i][j] > 0)
 				sum = sum + p[i][j];
@@ -79,17 +79,17 @@ const float avgDistance(int** p, AdjMatrix& A)
 const float longDistance(int** p, AdjMatrix& A)
 {
 	const int SIZE = A.getdensity();
-	float max      = 0;
+	float maxr      = 0;
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < SIZE; i++)
+		for (int j = 0; j < SIZE; j++)
 		{
-			if (p[i][j] > max)
-				max = p[i][j];
+			if (p[i][j] > maxr)
+				maxr = p[i][j];
 		}
 	}
-	return max;
+	return maxr;
 }
 
 void deleteDij(int** p, AdjMatrix& A)
