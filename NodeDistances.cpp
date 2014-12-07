@@ -66,7 +66,7 @@ const float avgDistance(int** p, AdjMatrix& A)
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < SIZE; i++)
+		for (int j = 0; j < SIZE; j++)
 		{
 			sum = sum + p[i][j];
 		}
@@ -82,7 +82,7 @@ const float longDistance(int** p, AdjMatrix& A)
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0; j < SIZE; i++)
+		for (int j = 0; j < SIZE; j++)
 		{
 			if (p[i][j] > max)
 				max = p[i][j];

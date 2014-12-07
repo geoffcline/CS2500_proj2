@@ -1,8 +1,7 @@
 
-#include "Components.h"
 #include "NodeDistances.h"
+//#include "Components.h"
 #include <fstream>
-#include <iostream>
 
 using namespace std;
 
@@ -19,6 +18,8 @@ int main ()
   const int NUMOFSENSORSINCREMENT = 50;
 
   ofstream fout;
+    
+    fout.open("stuff.csv");
 
   AdjMatrix M_working;
 
@@ -40,10 +41,10 @@ int main ()
   {
     M_working.generate(INITIALNUMOFSENSORS + NUMOFSENSORSINCREMENT * (i / NUMPERPOINT), RADIUS);
     
-    cc_result = ConnectedComponents(M_working);
+    //cc_result = ConnectedComponents(M_working);
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = Max(cc_result, M_working.getdensity());
+    //currentresult = Max(cc_result, M_working.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -51,7 +52,7 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-    currentresult = MostOccur(cc_result, M_working.getdensity());
+    //currentresult = MostOccur(cc_result, M_working.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;
@@ -109,11 +110,11 @@ int main ()
 
     M_working.generate(NUMOFSENSORS, INITIALRADIUS + RADIUSINCREMENT * (i / NUMPERPOINT)); //generate graph
 
-    cc_result = ConnectedComponents(M_working);
+    //cc_result = ConnectedComponents(M_working);
     
     //Num of CC
     cout << "Num of CCs (increasing sensors): \t" << i << endl;
-    currentresult = Max(cc_result, M_working.getdensity());
+    //currentresult = Max(cc_result, M_working.getdensity());
     fout << "\"Num of CCs\",\"" << i << "\",\"" << currentresult << "\"" << endl;
     
     totalresultNumCC+=currentresult;
@@ -121,7 +122,7 @@ int main ()
     
     //Size of Largest CC
     cout << "Size Of Largest CC (increasing sensors): \t" << i << endl;
-   currentresult = MostOccur(cc_result, M_working.getdensity());
+   //currentresult = MostOccur(cc_result, M_working.getdensity());
     fout << "\"Size Of Largest CC\",\"" << i << "\",\""  << currentresult << "\"" << endl;
     
     totalresultMaxCC+=currentresult;

@@ -19,6 +19,9 @@ void AdjMatrix::generate(const int newsz, const int newr)
 
 GeoNode::GeoNode()
 {
+    const int X_MAX = 500;
+    const int Y_MAX = 500; //decide where we want these variables
+    
   x = rand() % (X_MAX + 1);
   y = rand() % (Y_MAX + 1);
 }
@@ -60,7 +63,7 @@ void AdjMatrix::calculate()
 {
   for (int i = 0; i < getdensity(); ++i)
   {
-    for (int j = 0; i < getdensity(); ++j)
+    for (int j = 0; j < getdensity(); ++j)
     {
       connect[i][j] = NodeDistance(data[i],data[j]) <= getradius();
     }

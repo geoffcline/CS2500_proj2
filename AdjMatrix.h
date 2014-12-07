@@ -4,11 +4,9 @@
 #include <random>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 using namespace std;
-
-const int X_MAX = 500;
-const int Y_MAX = 500; //decide where we want these variables
 
 struct GeoNode
 {

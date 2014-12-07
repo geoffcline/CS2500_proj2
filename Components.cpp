@@ -1,5 +1,4 @@
 #include "Components.h"
-#include "AdjMatrix.h"
 
 int* ConnectedComponents(const AdjMatrix& A)
 {
