@@ -9,16 +9,6 @@ void DFSAssign(const AdjMatrix& A, int* id_arr, const int parent, const int newi
 
 int  MostOccur(const int* A, const int sz);
 
-int  Maxi(const int* A, const int sz);
-
-int  Max(const int* A, const int sz) {return A[Maxi(A,sz)];}
-
-int  Maxi(const int* A, const int sz);
-
-int  Mini(const int* A, const int sz);
-
-int  Min(const int* A, const int sz) {return A[Mini(A,sz)];}
-
 
 
 #endif 

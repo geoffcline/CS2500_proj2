@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include "arrops.h"
 
 using namespace std;
 
@@ -44,6 +45,8 @@ public:
   ~AdjMatrix() {clear();}
 
 };
+
+
 
 
 #endif 
