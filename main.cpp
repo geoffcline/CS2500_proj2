@@ -78,7 +78,7 @@ int main ()
 
     deleteDij(dist, M_working);
 
-    if(i%NUMPERPOINT==0 && i!=0)
+    if((i+1)%NUMPERPOINT==0 && i!=0)
     {
       
       totalresultNumCC = totalresultNumCC/NUMPERPOINT;
@@ -148,7 +148,7 @@ int main ()
 
     deleteDij(dist, M_working);
 
-    if(i%NUMPERPOINT==0 && i!=0)
+    if((i+1)%NUMPERPOINT==0 && i!=0)
     {
       
       totalresultNumCC = totalresultNumCC/NUMPERPOINT;
