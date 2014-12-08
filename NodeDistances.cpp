@@ -103,7 +103,7 @@ void deleteDij(int** p, AdjMatrix& A)
 	
 	for (int i = 0; i < SIZE; i++ )
 	{
-		delete[] p[i];
+		//delete[] p[i];
 	}
-	delete[] p;                            //Might not work/ cause memory leak?
+	//delete[] p;                            //Might not work/ cause memory leak?
 }

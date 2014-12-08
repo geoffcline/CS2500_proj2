@@ -50,7 +50,8 @@ int MostOccur(const int* A, const int sz)
     
   int result = Max(freq, max);
     
-  delete [] freq;
+  //delete [] freq;
+    
 
   return result;
 }
