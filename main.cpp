@@ -59,7 +59,7 @@ int main ()
     
     totalresultMaxCC+=currentresult;
 
-    //delete [] cc_result;
+    delete [] cc_result;
     cc_result = NULL;
 
     dist = shortestPaths(M_working);
@@ -129,7 +129,7 @@ int main ()
     
     totalresultMaxCC+=currentresult;
 
-    //delete [] cc_result;
+    delete [] cc_result;
     cc_result = NULL;
 
     dist = shortestPaths(M_working);
