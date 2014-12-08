@@ -18,6 +18,13 @@ int* ConnectedComponents(const AdjMatrix& A)
       DFSAssign(A, id_arr, i,++curr_id);
     }
     
+    /*
+    cout << "CONNECTED COMPONENTS:" << endl;
+    for (int i = 0; i < SIZE; ++i)
+        cout << id_arr[i] << " ";
+    cout << endl;
+    */
+    
     return id_arr;
 }
 
@@ -41,7 +48,7 @@ int MostOccur(const int* A, const int sz)
   for (int i = 0; i < sz; ++i)
     freq[A[i]]++;
     
-  int result = Maxi(freq, max);
+  int result = Max(freq, max);
     
   delete [] freq;
 

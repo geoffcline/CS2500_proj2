@@ -47,10 +47,10 @@ void  AdjMatrix::clear()
   {
     delete [] data;
 
-    for (int i = 0; i < getdensity(); ++i)
-      delete [] connect[i];
+    //for (int i = 0; i < getdensity(); ++i)
+      //delete [] connect[i];
     
-    delete [] connect;
+    //delete [] connect;
     
     
   }
